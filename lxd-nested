@@ -1,0 +1,40 @@
+config:
+  core.https_address: 10.0.10.5:8443
+  core.trust_password: P@$$w0rd
+networks:
+- config:
+    bridge.mode: fan
+    fan.underlay_subnet: auto
+  description: ""
+  managed: false
+  name: lxdfan1
+  type: ""
+storage_pools:
+- config:
+    source: /var/lib/lxd/storage-pools/local
+  description: ""
+  name: local
+  driver: btrfs
+profiles:
+- config:
+    security.privileged: "true"
+  description: ""
+  devices:
+    eth0:
+      name: eth0
+      nictype: bridged
+      parent: lxdfan1
+      type: nic
+    root:
+      path: /
+      pool: local
+      type: disk
+  name: default
+cluster:
+  server_name: ZONE
+  enabled: true
+  member_config: []
+  cluster_address: ""
+  cluster_certificate: ""
+  server_address: "10.0.10.55"
+  cluster_password: "password"
