@@ -7,8 +7,13 @@ This repository is an SDN enabled LXD environment that drives our prototype envi
 
 ## Technologies
 - Terraform
-- Ryu SDN Controller
+- [Locus SDN Controller](https://github.com/trvon/locus)
 - SaltStack
+
+## TODO Fixes
+- [ ] Dangerous permissions are added to sudoers to reduce complexity
+- [x] sudo is required for terraform and bricks when not provided (this cannot be seen)
+- [ ] Auto configure lxd
 
 ## Getting Started
 - Pull submodules
@@ -25,11 +30,6 @@ terraform init
 terraform plan
 terraform apply 
 ```
-
-## TODO Fixes
-- [x] sudo is required for terraform and bricks when not provided (this cannot be seen)
-- [ ] Auto configure lxd
-- [ ] Dangerous permissions are added to sudoers to reduce complexity
 
 ## Resources
 - [OpenVSwitch Port Mirroring](https://n40lab.wordpress.com/2013/02/23/openvswitch-port-mirroring/)
